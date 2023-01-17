@@ -5,11 +5,20 @@ Console.WriteLine("Hello, World!");
 
 using (var _context = new AppDbContext())
 {
-    var products = _context.Products.ToList();
 
-    foreach(var item in products)
-    {
-        Console.Write($"Ürün Adı: {item.Name}, Ürün Tutaru: {item.Price} \n"  );
-    }
+    //Listeleme 
+    //var products = _context.Products.ToList();
+
+    //foreach(var item in products)
+    //{
+    //    Console.Write($"Ürün Adı: {item.Name}, Ürün Tutaru: {item.Price} \n"  );
+    //}
+
+    //Id'sini bul getir.
+    //var products = _context.Products.Find(1);
+
+    //Console.WriteLine(products.Name);
+
+
 
 }
