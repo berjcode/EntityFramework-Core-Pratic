@@ -21,4 +21,21 @@ using (var _context = new AppDbContext())
 
 
 
+    // Ürün Ekleme ve state'ler
+
+    //var newProducts = new Product { Name = "Masa", Price = 12, };
+
+    //Console.WriteLine($"İlkState : {_context.Entry(newProducts).State}");
+
+    //await _context.AddAsync(newProducts);
+
+    //Console.WriteLine($"Ekledikten Sonra State: {_context.Entry(newProducts).State}");
+
+    //await _context.SaveChangesAsync();
+
+    //Console.WriteLine($"Kaydettikten sonraki state: {_context.Entry(newProducts).State}");
+
+
+
+
 }
