@@ -54,3 +54,5 @@ C:\Users\abdbl\OneDrive\Belgeler\GitHub\EntityFramework-Core-Pratic\EntityFramew
 C:\Users\abdbl\OneDrive\Belgeler\GitHub\EntityFramework-Core-Pratic\EntityFrameworkPratic\EntityFrameworkPratic\obj\Debug\net6.0\EntityFrameworkPratic.pdb
 C:\Users\abdbl\OneDrive\Belgeler\GitHub\EntityFramework-Core-Pratic\EntityFrameworkPratic\EntityFrameworkPratic\obj\Debug\net6.0\EntityFrameworkPratic.genruntimeconfig.cache
 C:\Users\abdbl\OneDrive\Belgeler\GitHub\EntityFramework-Core-Pratic\EntityFrameworkPratic\EntityFrameworkPratic\obj\Debug\net6.0\ref\EntityFrameworkPratic.dll
+C:\Users\abdbl\OneDrive\Belgeler\GitHub\EntityFramework-Core-Pratic\EntityFrameworkPratic\EntityFrameworkPratic\bin\Debug\net6.0\Humanizer.dll
+C:\Users\abdbl\OneDrive\Belgeler\GitHub\EntityFramework-Core-Pratic\EntityFrameworkPratic\EntityFrameworkPratic\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
