@@ -20,6 +20,6 @@ namespace EntityFrameworkPratic.DAL
 
 
         public Category Category { get; set; } //Navigation property
-
+        public ProductFeature ProductFeature { get; set; } // 1-1 İLİŞKİ
     }
 }

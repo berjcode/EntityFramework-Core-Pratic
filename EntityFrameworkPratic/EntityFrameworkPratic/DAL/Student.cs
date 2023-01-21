@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace EntityFrameworkPratic.DAL
 {
-    public class Category
+  public class Student
     {
-
-        public int Id { get; set; }
-
+        public int  Id { get; set; }
         public string Name { get; set; }
 
-        public string Description { get; set; }
+        public int Age { get; set; }
 
 
 
+        public List<Teacher> Teachers  { get; set; }
 
-        public List<Product> Products { get; set; } = new List<Product>();
+
     }
 }
