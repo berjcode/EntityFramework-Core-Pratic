@@ -51,11 +51,11 @@ using (var _context = new AppDbContext())
     //ChangeTracker  : Entity Framework'ün tüm entity ve propertyler üzerinde uygulanan tüm değişiklikleri izleyerek, bu değişimleri veri kaynağına doğru bir şekilde yansıtabilmek ve uygun DML (Data Manipulation Language) ifadeleri oluşturabilmektir.
 
 
-    var products = _context.Products.ToList();
+    var products = _context.Products.Include(x => x.Category).Include(x=>x.ProductFeature).ToList();
 
     foreach (var item in products)
     {
 
-        Console.Write($"Ürün Adı: {item.Name}, Ürün Tutaru: {item.Price} , Ürun Stoğu : {item.stock}, Kategori :\n");
+        Console.Write($"Ürün Adı: {item.Name}, Ürün Tutaru: {item.Price} , Ürun Stoğu : {item.stock}, Kategori :{item.Category.Name}  , Boyutu : {item.ProductFeature.Width},Renk :{ item.ProductFeature.Color} \n");
     }
 }

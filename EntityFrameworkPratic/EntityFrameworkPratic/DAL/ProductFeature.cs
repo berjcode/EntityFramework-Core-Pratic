@@ -21,10 +21,10 @@ namespace EntityFrameworkPratic.DAL
         public string Color { get; set; }
 
         // Id'yi hem primary hem foreignkey olarak kullan.
-       // public int ProductId { get; set; } // Child olduğu için foreign key 
+        // public int ProductId { get; set; } // Child olduğu için foreign key 
 
 
         //Data a.  =  [ForeignKey("ProductId")] 
-        public Product Product { get; set; } //Child
+        public Product Product { get; set; }  //Child
     }
 }
