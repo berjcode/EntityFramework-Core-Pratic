@@ -51,11 +51,30 @@ using (var _context = new AppDbContext())
     //ChangeTracker  : Entity Framework'ün tüm entity ve propertyler üzerinde uygulanan tüm değişiklikleri izleyerek, bu değişimleri veri kaynağına doğru bir şekilde yansıtabilmek ve uygun DML (Data Manipulation Language) ifadeleri oluşturabilmektir.
 
 
-    var products = _context.Products.Include(x => x.Category).Include(x=>x.ProductFeature).ToList();
+    //EagerLoading
+        //var products = _context.Products.Include(x => x.Category).Include(x=>x.ProductFeature).ToList();
 
-    foreach (var item in products)
-    {
+        //foreach (var item in products)
+        //{
 
-        Console.Write($"Ürün Adı: {item.Name}, Ürün Tutaru: {item.Price} , Ürun Stoğu : {item.stock}, Kategori :{item.Category.Name}  , Boyutu : {item.ProductFeature.Width},Renk :{ item.ProductFeature.Color} \n");
-    }
+        //    Console.Write($"Ürün Adı: {item.Name}, Ürün Tutaru: {item.Price} , Ürun Stoğu : {item.stock}, Kategori :{item.Category.Name}  , Boyutu : {item.ProductFeature.Width},Renk :{ item.ProductFeature.Color} \n");
+        //}
+
+
+    //Explicit Loading
+
+    // Sadece gerekeen aşamadaki verileri ilişki ile çeker
+
+        //var category = _context.Categories.First();
+
+        //if(true)
+        //{
+        //    //1-n İlişkide collection kullanılır.  1-1 ilişkide reference kullanılır. ürünleri üzerinden yapsaydık. 
+        //    _context.Entry(category).Collection(x=>x.Products).Load();
+        //category.Products.ForEach(x =>
+        //{
+        //    Console.WriteLine(x.Name);
+        //});
+        
+        //}
 }
