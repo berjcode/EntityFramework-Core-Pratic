@@ -132,9 +132,13 @@ using (var _context = new AppDbContext())
     //Category category = new Category();
     //category.Name = "Ev Eşyası";
     //category.Description= "Evinizi şimartın";
+
     //_context.Categories.Add(category);
-    _context.Products.Add(new Product() { Name = "Dolap", Price =1000,stock=123,CategoryId =2});
+
+    //Sorgu pratik
+    //var category = _context.Categories.First(x=> x.Name == "Ev Eşyası");
+    _context.Products.Add(new Product() { Name = "Dolap", Price = 1000, stock = 123, CategoryId = category.Id } );
     _context.SaveChanges();
     
-    Console.WriteLine("x");
+    Console.WriteLine("");
 }
