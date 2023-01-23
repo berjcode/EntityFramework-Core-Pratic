@@ -1,4 +1,5 @@
 ﻿
+using EntityFrameworkPratic.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,9 @@ namespace EntityFrameworkPratic.DAL
         public DbSet<Category>  Categories { get; set; }
         public DbSet<ProductFeature> ProductFeatures { get; set; }
 
+        //Tablo değil
+        public DbSet<ProductsEssential> ProductsEssentials { get; set; }
+        public DbSet<ProductWithFeature> productWithFeatures { get; set; }
         public DbSet<Student> Students { get; set; }
 
         public DbSet<Teacher> Teachers { get; set; }    
@@ -50,6 +54,9 @@ namespace EntityFrameworkPratic.DAL
 
                 );
 
+
+            modelBuilder.Entity<ProductsEssential>().HasNoKey();
+            modelBuilder.Entity<ProductWithFeature>().HasNoKey();
             base.OnModelCreating(modelBuilder);
         }
     }
