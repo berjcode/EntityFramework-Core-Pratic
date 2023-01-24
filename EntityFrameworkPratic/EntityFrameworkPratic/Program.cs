@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using EntityFrameworkPratic.DAL;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 Console.WriteLine("Hello, World!");
 
@@ -115,13 +117,13 @@ using (var _context = new AppDbContext())
     //}
 
 
-   // var result = _context.Products.FromSqlRaw("Select * from Products ").ToList();
+    // var result = _context.Products.FromSqlRaw("Select * from Products ").ToList();
 
-    var id = 1;
+    //var id = 1;
 
     //var result2 = _context.Products.FromSqlRaw("Select * from Products  where Id = {0}", id).ToList();
 
-    var price = 1;
+    //var price = 1;
 
     // var result3 = _context.ProductsEssentials.FromSqlInterpolated($"select Id,Name,Price from products where price > {price}  ").ToList();
 
@@ -137,8 +139,28 @@ using (var _context = new AppDbContext())
 
     //Sorgu pratik
     //var category = _context.Categories.First(x=> x.Name == "Ev Eşyası");
-    _context.Products.Add(new Product() { Name = "Dolap", Price = 1000, stock = 123, CategoryId = category.Id } );
-    _context.SaveChanges();
-    
+    //_context.Products.Add(new Product() { Name = "Dolap", Price = 1000, stock = 123, CategoryId = 2 } );
+    //_context.SaveChanges();
+
+
+    //var products = _context.Products.FromSqlRaw("exec sp_Get_Products").ToList();
+
+    // var xy = products.Where(x=> x.Price > 200 );
+    var product = new Product()
+    {
+        Name = "Camaşır Makinesi",
+        Price =25166,
+        stock= 154,
+        CategoryId= 2,
+    };
+
+    //var newProductId = new SqlParameter("@newId",SqlDbType.Int);
+    //newProductId.Direction = ParameterDirection.Output;
+
+    //_context.Database.ExecuteSqlInterpolated($"exec sp_insert_products  {product.Name}, {product.Price},{product.stock},{product.CategoryId},{newProductId} out");
+    //var newProductIdS = newProductId.Value;
+
+    _context.Database.ExecuteSqlInterpolated($"sp_insert_products2 {product.Name}, {product.Price},{product.stock},{product.CategoryId} ");
+
     Console.WriteLine("");
 }
