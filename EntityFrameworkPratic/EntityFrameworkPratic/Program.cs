@@ -8,6 +8,19 @@ Console.WriteLine("Hello, World!");
 
 using (var _context = new AppDbContext())
 {
+       // veri ekle 
+    // ilk önce dbcontext'ten bir nesne  oluştur.  ardından entity nesnesinin örneğini  oluştur ve context üzerinden gerekli methodu cğır. add veya addasync 
+
+    //Entity oluşturuken primary key tanımlanmalıdır. 
+
+    //savechanges : insert, update ve delete sorgularını oluştuurp bir transaction eşliğinde veritabanına gönderip execute eden bir fonskiyon.
+            /// Yapılan tüm işlemleri tek bir savechanges ile bitir.
+         
+            /// await context.Prducts.AddRangeAsync(urun1,urun2,urun3);
+            /// await.saveschagersasync();
+            /// firstOrDefault = verilen şarta uygun ilk veriyi getirir.
+            /// changertracker : contex üzerinden gelen verileirn takibinden sorumlu  bir mekanizmadır. Context üzerinden gelen verilerle ilgili işlemler neticesinde update,delete oluşturulacağı anlaşılır.
+
     // ------------------------------------------------------------------------------------------\\
     //Listeleme 
     //var products = _context.Products.ToList();
@@ -146,13 +159,13 @@ using (var _context = new AppDbContext())
     //var products = _context.Products.FromSqlRaw("exec sp_Get_Products").ToList();
 
     // var xy = products.Where(x=> x.Price > 200 );
-    var product = new Product()
-    {
-        Name = "Camaşır Makinesi",
-        Price =25166,
-        stock= 154,
-        CategoryId= 2,
-    };
+    //var product = new Product()
+    //{
+    //    Name = "Camaşır Makinesi",
+    //    Price =25166,
+    //    stock= 154,
+    //    CategoryId= 2,
+    //};
 
     //var newProductId = new SqlParameter("@newId",SqlDbType.Int);
     //newProductId.Direction = ParameterDirection.Output;
@@ -160,7 +173,7 @@ using (var _context = new AppDbContext())
     //_context.Database.ExecuteSqlInterpolated($"exec sp_insert_products  {product.Name}, {product.Price},{product.stock},{product.CategoryId},{newProductId} out");
     //var newProductIdS = newProductId.Value;
 
-    _context.Database.ExecuteSqlInterpolated($"sp_insert_products2 {product.Name}, {product.Price},{product.stock},{product.CategoryId} ");
+  //  _context.Database.ExecuteSqlInterpolated($"sp_insert_products2 {product.Name}, {product.Price},{product.stock},{product.CategoryId} ");
 
-    Console.WriteLine("");
+  //  Console.WriteLine("");
 }
