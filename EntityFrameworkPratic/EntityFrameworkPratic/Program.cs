@@ -2,24 +2,74 @@
 using EntityFrameworkPratic.DAL;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Data;
 
 Console.WriteLine("Hello, World!");
 
 using (var _context = new AppDbContext())
 {
-       // veri ekle 
+    // veri ekle 
     // ilk önce dbcontext'ten bir nesne  oluştur.  ardından entity nesnesinin örneğini  oluştur ve context üzerinden gerekli methodu cğır. add veya addasync 
 
     //Entity oluşturuken primary key tanımlanmalıdır. 
 
     //savechanges : insert, update ve delete sorgularını oluştuurp bir transaction eşliğinde veritabanına gönderip execute eden bir fonskiyon.
-            /// Yapılan tüm işlemleri tek bir savechanges ile bitir.
-         
-            /// await context.Prducts.AddRangeAsync(urun1,urun2,urun3);
-            /// await.saveschagersasync();
-            /// firstOrDefault = verilen şarta uygun ilk veriyi getirir.
-            /// changertracker : contex üzerinden gelen verileirn takibinden sorumlu  bir mekanizmadır. Context üzerinden gelen verilerle ilgili işlemler neticesinde update,delete oluşturulacağı anlaşılır.
+    /// Yapılan tüm işlemleri tek bir savechanges ile bitir.
+
+    /// await context.Prducts.AddRangeAsync(urun1,urun2,urun3);
+    /// await.saveschagersasync();
+    /// firstOrDefault = verilen şarta uygun ilk veriyi getirir.
+    /// changertracker : contex üzerinden gelen verileirn takibinden sorumlu  bir mekanizmadır. Context üzerinden gelen verilerle ilgili işlemler neticesinde update,delete oluşturulacağı anlaşılır.
+
+
+
+    // Defered execution ertelenmiş çalışma
+
+    //IQUERYABLE ÇALIŞMALARINDA İLGİLİ KOD YAZILDIĞI NOKTADA TETİKLENMEZ YANİ İLGİLİ KOD YAZILDIĞI NOKTADA SORGUYU GENERATE ETMEZ.
+    //ÇALIŞTIRILDIĞI EXECUTE EDİLDİĞİ NOKTADA TETİKLENİR. Bu duruma defered execution denir.
+
+    //   IQueryable
+
+    //Sorguya karşılık gelir. Ef core üzerinden yapılmış olan sorgunun execute edilmemiş halini ifade eder.
+
+
+    //IEnumerable
+    //Sorgunun çalıştırlıp verilerin memory yüklenmiş halini ifade eder.
+
+
+
+    //Sorgu oluşturma noktası queryable, sonuna tolist eklediğin zaman execute etmiş olurusn o zama n enurable olur
+
+    //IQueryable
+
+    //Var urunler = from urun in context.urunler select urun;
+
+    //    Foreach(Urun urun in urunler)
+    //     {
+    //        Console.writeline(urun.urunadı);
+    //    }
+
+
+    //IEnumerable
+
+ //var  RESULT1=  _context.Products.ToList();
+
+
+    //IQueryable
+    var result2 = from product in _context.Products select product;
+
+
+
+    foreach(Product product in  result2)
+    {
+        Console.WriteLine(product.Name);
+    }
+
+
+
+
+
 
     // ------------------------------------------------------------------------------------------\\
     //Listeleme 
@@ -173,7 +223,7 @@ using (var _context = new AppDbContext())
     //_context.Database.ExecuteSqlInterpolated($"exec sp_insert_products  {product.Name}, {product.Price},{product.stock},{product.CategoryId},{newProductId} out");
     //var newProductIdS = newProductId.Value;
 
-  //  _context.Database.ExecuteSqlInterpolated($"sp_insert_products2 {product.Name}, {product.Price},{product.stock},{product.CategoryId} ");
+    //  _context.Database.ExecuteSqlInterpolated($"sp_insert_products2 {product.Name}, {product.Price},{product.stock},{product.CategoryId} ");
 
-  //  Console.WriteLine("");
+    //  Console.WriteLine("");
 }
